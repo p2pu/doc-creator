@@ -26,10 +26,10 @@
 
         <script src="{{site.baseurl}}/js/vendor/bootstrap.min.js"></script>
 
-
         {% if page.extra_js %}
           {% for js in page.extra_js %}
-            {% if js|truncate: 4 == 'http' %}
+            {% assign start = js|truncate:7 %}
+            {% if start == 'http...' %}
               <script src="{{js}}"></script>
             {% else %}
               <script src="{{site.baseurl}}{{js}}"></script>
